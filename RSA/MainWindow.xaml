@@ -5,10 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RSA"
         mc:Ignorable="d"
-        Title="RSA" Height="450" Width="800">
+        FontSize="16px"
+        Title="RSA" MinHeight="385" Height="337.8" MinWidth="235" Width="628.6">
+
     <Grid>
-        
-        
-        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Content="e" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputE" Grid.Column="1" Grid.Row="0" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+
+            <Label Content="p" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputP" Grid.Column="1" Grid.Row="1" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
+
+            <Label Content="q" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputQ" Grid.Column="1" Grid.Row="2" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
+
+            <Label Content="n" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputN" Grid.Column="1" Grid.Row="3" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
+
+            <Label Content="d" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputD" Grid.Column="1" Grid.Row="4" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Content="M" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputM" Grid.Column="1" Grid.Row="0" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+
+            <Label Content="C" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputC" Grid.Column="1" Grid.Row="1" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+
+            <Label Content="->" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputResultC" Grid.Column="3" Grid.Row="0" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+
+            <Label Content="->" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputResultM" Grid.Column="3" Grid.Row="1" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+        </Grid>
+
+        <Button Content="Go" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="5" Width="100" Height="30"/>
+
+        <Canvas Grid.Row="1" Height="20" Margin="10 0 10 0">
+            <Line X1="0" Y1="10" X2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth}" Y2="10" Stroke="Gray" StrokeThickness="2"></Line>
+        </Canvas>
+
     </Grid>
+
 </Window>
