@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,11 +16,14 @@ namespace RSA
         {
             InitializeComponent();
 
-            foreach (var n in PrimeTester.GetFromEratosphen(150))
+            while (true)
             {
-                Console.Write(n + " ");
+                Console.WriteLine(RandomGenerator.GetNumber(226, 222));
+
+
+                Console.ReadKey();
             }
-            
+
         }
     }
 }
