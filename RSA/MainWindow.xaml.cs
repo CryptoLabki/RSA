@@ -14,6 +14,12 @@ namespace RSA
         public MainWindow()
         {
             InitializeComponent();
+
+            foreach (var n in PrimeTester.GetFromEratosphen(150))
+            {
+                Console.Write(n + " ");
+            }
+            
         }
     }
 }
