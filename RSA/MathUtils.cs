@@ -21,11 +21,52 @@ namespace RSA
             return a;
         }
 
+        public static BigInteger ModInverse(BigInteger a, BigInteger m)
+        {
+            var m0 = m;
+            BigInteger y = 0, x = 1;
+
+            if (m == 1)
+                return 0;
+
+            while (a > 1)
+            {
+                var q = a / m;
+                var t = m;
+
+                m = a % m;
+                a = t;
+                t = y;
+
+                y = x - q * y;
+                x = t;
+            }
+
+            if (x < 0)
+                x += m0;
+
+            return x;
+        }
 
         public static BigInteger ModExp(BigInteger a, BigInteger b, BigInteger n)
         {
-            throw new NotImplementedException();
-        }
+            BigInteger res = 1;
 
+            a = a % n;
+
+            if (a == 0)
+                return 0;
+
+            while (b > 0)
+            {
+                if ((b & 1) != 0)
+                    res = BigInteger.Multiply(res, a) % n;
+
+                b = b >> 1;
+                a = BigInteger.Multiply(a, a) % n;
+            }
+
+            return res;
+        }
     }
 }
