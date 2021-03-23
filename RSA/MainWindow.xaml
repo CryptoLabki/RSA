@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RSA"
         mc:Ignorable="d"
         FontSize="16px"
-        Title="RSA" MinHeight="385" Height="337.8" MinWidth="235" Width="628.6">
+        Title="RSA" MinHeight="450" Height="449.8" MinWidth="235" Width="723.4">
 
     <Grid>
 
@@ -24,27 +24,30 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
             <Label Content="e" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-            <TextBox Name="inputE" Grid.Column="1" Grid.Row="0" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputE" Grid.Column="1" Grid.Row="0" Height="auto" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
 
             <Label Content="p" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-            <TextBox Name="inputP" Grid.Column="1" Grid.Row="1" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
+            <TextBox Name="inputP" Grid.Column="1" Grid.Row="1" Height="auto" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
 
             <Label Content="q" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-            <TextBox Name="inputQ" Grid.Column="1" Grid.Row="2" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
+            <TextBox Name="inputQ" Grid.Column="1" Grid.Row="2" Height="auto" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
 
             <Label Content="n" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-            <TextBox Name="inputN" Grid.Column="1" Grid.Row="3" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
+            <TextBox Name="inputN" Grid.Column="1" Grid.Row="3" Height="auto" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
 
             <Label Content="d" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-            <TextBox Name="inputD" Grid.Column="1" Grid.Row="4" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
+            <TextBox Name="inputD" Grid.Column="1" Grid.Row="4" Height="auto" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" IsReadOnly="True"/>
+
+            <Button Name="btnRefresh" Content="Refresh" Grid.Column="1" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="5" Width="100" Height="30" Click="BtnRefresh_Click"/>
         </Grid>
 
         <Grid Grid.Row="2">
@@ -73,7 +76,7 @@
             <TextBox Name="inputResultM" Grid.Column="3" Grid.Row="1" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
         </Grid>
 
-        <Button Content="Go" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="5" Width="100" Height="30"/>
+        <Button Name="btnGo" Content="Go" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="5" Width="100" Height="30" Click="BtnGo_Click"/>
 
         <Canvas Grid.Row="1" Height="20" Margin="10 0 10 0">
             <Line X1="0" Y1="10" X2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth}" Y2="10" Stroke="Gray" StrokeThickness="2"></Line>

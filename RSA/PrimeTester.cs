@@ -28,24 +28,6 @@ namespace RSA
         }
 
 
-        public static bool CheckFermat(BigInteger n)
-        {
-            if (n < 2) return false;
-            if (n <= 3) return true;
-            if (n.IsEven) return false;
-
-            for (int i = 2; i < n; i++)
-            {
-                if (MathUtils.ModExp(new BigInteger(i), n - 1, n) != 1)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-
         public static bool CheckRabinMiller(BigInteger n, int r)
         {
             if (n < 2) return false;
@@ -66,7 +48,7 @@ namespace RSA
                 // Choose a in [2 .. n - 2]
                 var a = RandomGenerator.GetNumber(2, n - 2);
 
-                var x = MathUtils.ModExp(a, new BigInteger(s), n);
+                var x = MathUtils.ModExp(a, m, n);
 
                 if (x == 1 || x == n - 1) continue;
 
@@ -92,8 +74,6 @@ namespace RSA
             {
                 if (n % p == 0) return false;
             }
-
-            if (CheckFermat(n) == false) return false;
 
             if (CheckRabinMiller(n, 10) == false) return false;
 

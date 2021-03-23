@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Decryptor.cs" />
     <Compile Include="Encryptor.cs" />
     <Compile Include="RandomGenerator.cs" />
     <Page Include="MainWindow.xaml">

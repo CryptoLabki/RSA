@@ -59,6 +59,7 @@ namespace RSA
             {
                 number = GetNumber(lengthInBits);
                 if (number.IsEven) number--;
+                if (number < 0) continue;
 
                 if (PrimeTester.FullTest(number) == true)
                     return number;
