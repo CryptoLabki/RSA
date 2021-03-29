@@ -30,37 +30,40 @@ namespace RSA
 
         public static bool CheckRabinMiller(BigInteger n, int r)
         {
-            if (n < 2) return false;
-            if (n <= 3) return true;
-            if (n.IsEven) return false;
+            var b = n - 1;
+            int k = -1;
+            var beta = new List<int>();
 
-            int s = 0;
-            var m = n - 1;
-
-            while (m.IsEven)
+            do
             {
-                m /= 2;
-                s++;
+                k++;
+                beta.Add((int)(b % 2));
+                b /= 2;
             }
+            while (b > 0);
 
-            while (r-- > 0)
+            for (int j = 0; j < r; j++)
             {
-                // Choose a in [2 .. n - 2]
                 var a = RandomGenerator.GetNumber(2, n - 2);
 
-                var x = MathUtils.ModExp(a, m, n);
+                if (MathUtils.GCD(a, n) > 1)
+                    return false;
 
-                if (x == 1 || x == n - 1) continue;
-
-                for (int i = 0; i < s - 1; i++)
+                BigInteger d = 1;
+                for (int i = k; i >= 0; i--)
                 {
-                    x = MathUtils.ModExp(x, 2, n);
+                    var x = d;
+                    d = MathUtils.ModExp(d, 2, n);
 
-                    if (x == 1) return false;
-                    if (x == n - 1) break;
+                    if (d == 1 && x != 1 && x != n - 1)
+                        return false;
+
+                    if (beta[i] == 1)
+                        d = (d * a) % n;
                 }
 
-                if (x != n - 1) return false;
+                if (d != 1)
+                    return false;
             }
 
             return true;
@@ -69,13 +72,19 @@ namespace RSA
 
         public static bool FullTest(BigInteger n)
         {
+            if (n < 2) return false;
+            if (n <= 3) return true;
+            if (n.IsEven) return false;
+
             // simple test
             foreach (var p in GetFromEratosphen((int)BigInteger.Min(150, n)))
             {
-                if (n % p == 0) return false;
+                if (n % p == 0)
+                    return false;
             }
 
-            if (CheckRabinMiller(n, 10) == false) return false;
+            if (CheckRabinMiller(n, 10) == false)
+                return false;
 
             return true;
         }

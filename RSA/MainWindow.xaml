@@ -11,10 +11,10 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="2*"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -59,21 +59,21 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
             <Label Content="M" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-            <TextBox Name="inputM" Grid.Column="1" Grid.Row="0" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputM" Grid.Column="1" Grid.Row="0" Height="auto" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
 
             <Label Content="C" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-            <TextBox Name="inputC" Grid.Column="1" Grid.Row="1" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputC" Grid.Column="1" Grid.Row="1" Height="auto" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
 
             <Label Content="->" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-            <TextBox Name="inputResultC" Grid.Column="3" Grid.Row="0" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputResultC" Grid.Column="3" Grid.Row="0" Height="auto" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
 
             <Label Content="->" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-            <TextBox Name="inputResultM" Grid.Column="3" Grid.Row="1" Height="30" TextWrapping="NoWrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Name="inputResultM" Grid.Column="3" Grid.Row="1" Height="auto" TextWrapping="Wrap" Text="TextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5"/>
         </Grid>
 
         <Button Name="btnGo" Content="Go" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="5" Width="100" Height="30" Click="BtnGo_Click"/>
